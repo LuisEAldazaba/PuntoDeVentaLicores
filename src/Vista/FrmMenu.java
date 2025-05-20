@@ -2,12 +2,15 @@
 package Vista;
 
 import java.awt.Dimension;
+import javax.swing.JDesktopPane;
 
 /**
  *
  * @author aldaz
  */
 public class FrmMenu extends javax.swing.JFrame {
+    public static JDesktopPane jDesktopPane_menu;
+    
 
     public FrmMenu() {
         initComponents();
@@ -15,7 +18,15 @@ public class FrmMenu extends javax.swing.JFrame {
         this.setExtendedState(this.MAXIMIZED_BOTH);
         this.setLocationRelativeTo(null);
         this.setTitle("Sistema de Ventas");
-       
+        
+        this.setLayout(null);
+        jDesktopPane_menu = new JDesktopPane();
+        
+        int ancho= java.awt.Toolkit.getDefaultToolkit().getScreenSize().width;
+        int alto= java.awt.Toolkit.getDefaultToolkit().getScreenSize().height;
+        //aqui le damos el tamaño que estara el fondo 
+        this.jDesktopPane_menu.setBounds(0, 0, ancho, (alto -110));//el -110 es para ajustar lo de la barra
+        this.add(jDesktopPane_menu);
     }
 
     /**
@@ -246,7 +257,9 @@ public class FrmMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem_gestionar_usuarioActionPerformed
 
     private void jMenuItem_nueva_categoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_nueva_categoriaActionPerformed
-        // TODO add your handling code here:
+        InterCategoria interCategoria= new InterCategoria();
+        jDesktopPane_menu.add(interCategoria);
+        interCategoria.setVisible(true); //con esto le damos formato cuando presionamos el boton de nueva categoria
     }//GEN-LAST:event_jMenuItem_nueva_categoriaActionPerformed
 
     private void jMenuItem_reporte_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_reporte_clienteActionPerformed
