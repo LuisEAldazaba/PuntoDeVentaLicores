@@ -1,6 +1,6 @@
 package Controlador;
 
-import Conexion.Conexion;
+import conexion.Conexion;
 import Modelo.Usuario;
 import java.sql.Connection;
 import java.sql.ResultSet;

@@ -1,11 +1,11 @@
-
 package Vista;
 
+import Controlador.Ctrl_Categoria;
+import Modelo.Categoria;
 import java.awt.Dimension;
-
+import javax.swing.JOptionPane;
 
 public class InterCategoria extends javax.swing.JInternalFrame {
-
     
     public InterCategoria() {
         initComponents();
@@ -13,7 +13,6 @@ public class InterCategoria extends javax.swing.JInternalFrame {
         this.setTitle("Nueva Categoria");
         
     }
-
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -51,6 +50,11 @@ public class InterCategoria extends javax.swing.JInternalFrame {
         jButton1.setBackground(new java.awt.Color(0, 204, 204));
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton1.setText("Guardar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 90, 30));
 
         jLabel_wallpaper.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/fondo3.jpg"))); // NOI18N
@@ -62,6 +66,36 @@ public class InterCategoria extends javax.swing.JInternalFrame {
     private void txt_descripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_descripcionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_descripcionActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        Categoria categoria = new Categoria();
+        Ctrl_Categoria controlCategoria = new Ctrl_Categoria();
+        
+        categoria.setDescripcion(txt_descripcion.getText().trim());
+        categoria.setEstado(1);
+        //validamos campos vacios
+        if (txt_descripcion.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Complete todos los campos");
+        } else {
+            
+            if (!controlCategoria.existeCategoria(txt_descripcion.getText().trim())){
+            categoria.setDescripcion(txt_descripcion.getText().trim());
+            categoria.setEstado(1);
+                 if (controlCategoria.guardar(categoria)) {
+                JOptionPane.showMessageDialog(null, "Registro Guardado");                
+                } else {
+                JOptionPane.showMessageDialog(null, "Error al guardar");                
+                 }
+            }else {
+                JOptionPane.showMessageDialog(null, "La categoria ya esta registrada");                
+            }
+            //limpiar campo
+            txt_descripcion.setText("");
+        }
+        
+
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
