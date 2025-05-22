@@ -4,10 +4,12 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/aldaz/Documents/NetBeansProjects/SistemaDeVentas/src/Vista/FrmMenu.java</file>
-            <file>file:/C:/Users/aldaz/Documents/NetBeansProjects/SistemaDeVentas/src/Vista/InterCategoria.java</file>
-            <file>file:/C:/Users/aldaz/Documents/NetBeansProjects/SistemaDeVentas/src/Vista/InterGestionarCategoria.java</file>
             <file>file:/C:/Users/aldaz/Documents/NetBeansProjects/SistemaDeVentas/src/conexion/Conexion.java</file>
             <file>file:/C:/Users/aldaz/Documents/NetBeansProjects/SistemaDeVentas/src/Controlador/Ctrl_Categoria.java</file>
+            <file>file:/C:/Users/aldaz/Documents/NetBeansProjects/SistemaDeVentas/src/Vista/InterProducto.java</file>
+            <file>file:/C:/Users/aldaz/Documents/NetBeansProjects/SistemaDeVentas/src/Modelo/Producto.java</file>
+            <file>file:/C:/Users/aldaz/Documents/NetBeansProjects/SistemaDeVentas/src/Controlador/Ctrl_Producto.java</file>
+            <file>file:/C:/Users/aldaz/Documents/NetBeansProjects/SistemaDeVentas/src/Vista/InterGestionarCategoria.java</file>
         </group>
     </open-files>
 </project-private>
