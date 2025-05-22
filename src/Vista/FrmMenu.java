@@ -113,6 +113,11 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenuItem_gestionar_producto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/producto.png"))); // NOI18N
         jMenuItem_gestionar_producto.setText("Gestionar Producto");
         jMenuItem_gestionar_producto.setPreferredSize(new java.awt.Dimension(200, 30));
+        jMenuItem_gestionar_producto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_gestionar_productoActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem_gestionar_producto);
 
         jMenuItem_actualizar_producto.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -295,6 +300,13 @@ public class FrmMenu extends javax.swing.JFrame {
      interProducto.setVisible(true);
      
     }//GEN-LAST:event_jMenuItem_nuevo_productoActionPerformed
+
+    private void jMenuItem_gestionar_productoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_gestionar_productoActionPerformed
+        InterGestionarProducto interGestionarProducto = new InterGestionarProducto();
+     jDesktopPane_menu.add(interGestionarProducto);
+     interGestionarProducto.setVisible(true);
+// TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem_gestionar_productoActionPerformed
 
     /**
      * @param args the command line arguments
