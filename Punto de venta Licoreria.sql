@@ -43,6 +43,9 @@ porcentajeIva int(2) not null,
 idCategoria int(11) not null,
 estado int(1) not null
 );
+select * from tb_producto;
+Select p.idProducto, p.nombre, p.cantidad, p.precio, p.descripcion, p.porcentajeIva, c.descripcion, p.estado from tb_producto As p, tb_categoria As c where p.idCategoria = c.idCategoria;
+
 -- crear tabla cabecera de venta
 create table tb_cabecera_venta(
 idCabeceraVenta int(11) auto_increment primary key, 
@@ -67,4 +70,4 @@ estado int(1) not null
 
 show tables;
 
-select * from tb_usuarios;
+select * from tb_usuario;
