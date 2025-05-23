@@ -362,7 +362,7 @@ public class InterGestionarProducto extends javax.swing.JInternalFrame {
             model.addColumn("precio");
             model.addColumn("descripcion");
             model.addColumn("Iva");
-            model.addColumn("estado");
+            model.addColumn("categoria");
 
             while (rs.next()) {
                 precio = rs.getDouble("precio");

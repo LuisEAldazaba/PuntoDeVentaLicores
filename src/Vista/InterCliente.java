@@ -104,7 +104,7 @@ public class InterCliente extends javax.swing.JInternalFrame {
         Ctrl_Cliente controlCliente = new Ctrl_Cliente();
 
         if (!txt_nombre.getText().isEmpty() && !txt_apellido.getText().isEmpty() && !txt_ine.getText().isEmpty()) {
-            //JOptionPane.showMessageDialog(null, "Correcto");
+            
             if (!controlCliente.existeCliente(txt_ine.getText().trim())) {
 
                 cliente.setNombre(txt_nombre.getText().trim());

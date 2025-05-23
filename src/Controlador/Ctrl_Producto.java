@@ -1,4 +1,3 @@
-
 package Controlador;
 
 import Modelo.Categoria;
@@ -11,9 +10,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Ctrl_Producto {
-    
+
     //metodo para guardar un nuevo producto
-     public boolean guardar(Producto objeto) {
+    public boolean guardar(Producto objeto) {
         boolean respuesta = false;
         Connection cn = Conexion.conectar();
         try {
@@ -26,7 +25,6 @@ public class Ctrl_Producto {
             consulta.setInt(6, objeto.getProcentajeIVA());
             consulta.setInt(7, objeto.getIdCategoria());
             consulta.setInt(8, objeto.getEstado());
-            
 
             if (consulta.executeUpdate() > 0) {
                 respuesta = true;
@@ -42,16 +40,19 @@ public class Ctrl_Producto {
     }
 
     //metodo para consultar si el producto ya esta en la BBDD
-    public boolean existeProducto(String producto) {
+    public boolean existeProducto(String nombre, String descripcion) {
         boolean respuesta = false;
-        String sql = "select nombre from tb_producto where nombre = '" + producto + "';";
+        // se cambio para que cheque si son iguales el nombre y la descripcion
+        String sql = "SELECT * FROM tb_producto WHERE nombre = ? AND descripcion = ?";
         Statement st;
 
         try {
             Connection cn = Conexion.conectar();
-            st = cn.createStatement();
-            ResultSet rs = st.executeQuery(sql);
-            while (rs.next()) {
+            PreparedStatement pst = cn.prepareStatement(sql);
+            pst.setString(1, nombre);
+            pst.setString(2, descripcion);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
                 respuesta = true;
             }
 
@@ -61,21 +62,20 @@ public class Ctrl_Producto {
 
         return respuesta;
     }
-    
-    
-        //metodo actualizar producto
+
+    //metodo actualizar producto
     public boolean actualizar(Producto objeto, int idProducto) {
         boolean respuesta = false;
         Connection cn = Conexion.conectar();
         try {
-            PreparedStatement consulta = cn.prepareStatement("update tb_producto set nombre= ?, cantidad= ?, precio= ?, descripcion= ?,porcentaje= ?,idCategoria= ?,estado= ? where idProducto = '"+idProducto+"'");
-            consulta.setString(1,objeto.getNombre());
-            consulta.setInt(2,objeto.getCantidad());
-            consulta.setDouble(3,objeto.getPrecio());
-            consulta.setString(4,objeto.getDescripcion());
-            consulta.setInt(5,objeto.getProcentajeIVA());
-            consulta.setInt(6,objeto.getIdCategoria());
-            consulta.setInt(7,objeto.getEstado());
+            PreparedStatement consulta = cn.prepareStatement("update tb_producto set nombre= ?, cantidad= ?, precio= ?, descripcion= ?,porcentaje= ?,idCategoria= ?,estado= ? where idProducto = '" + idProducto + "'");
+            consulta.setString(1, objeto.getNombre());
+            consulta.setInt(2, objeto.getCantidad());
+            consulta.setDouble(3, objeto.getPrecio());
+            consulta.setString(4, objeto.getDescripcion());
+            consulta.setInt(5, objeto.getProcentajeIVA());
+            consulta.setInt(6, objeto.getIdCategoria());
+            consulta.setInt(7, objeto.getEstado());
 
             if (consulta.executeUpdate() > 0) {
                 respuesta = true;
@@ -87,13 +87,13 @@ public class Ctrl_Producto {
 
         return respuesta;
     }
-    
-     //metodo eliminar producto
+
+    //metodo eliminar producto
     public boolean eliminar(int idProducto) {
         boolean respuesta = false;
         Connection cn = conexion.Conexion.conectar();
         try {
-            PreparedStatement consulta = cn.prepareStatement("delete from tb_producto where idProducto = '"+idProducto+"'");
+            PreparedStatement consulta = cn.prepareStatement("delete from tb_producto where idProducto = '" + idProducto + "'");
             consulta.executeUpdate();
 
             if (consulta.executeUpdate() > 0) {
@@ -105,7 +105,5 @@ public class Ctrl_Producto {
         }
         return respuesta;
     }
-    
-    
-    
+
 }

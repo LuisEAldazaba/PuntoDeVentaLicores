@@ -142,7 +142,10 @@ public class InterProducto extends javax.swing.JInternalFrame {
             txt_precio.setBackground(Color.red);
         } else {
             //consulta para ver si el producto ya existe
-            if (!controlProducto.existeProducto(txt_nombre.getText().trim())) {
+            String nombre = txt_nombre.getText().trim();
+            String descripcion = txt_descripcion.getText().trim();
+            //se agrego para que compare tanto nombre como descripcion si son iguales  o no
+            if (!controlProducto.existeProducto(nombre,descripcion)) {
 
                 if (iva.equalsIgnoreCase("Seleccione IVA:")) {
                     JOptionPane.showMessageDialog(null, "Seleccione iva.");
