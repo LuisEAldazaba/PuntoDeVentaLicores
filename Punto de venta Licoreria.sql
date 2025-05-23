@@ -21,11 +21,13 @@ create table tb_cliente(
 idCliente int(11) auto_increment primary key,
 nombre varchar(30) not null, 
 apellido varchar(30) not null, 
-cedula varchar(15) not null, 
+ine varchar(15) not null, 
 telefono varchar(15) not null, 
 direccion varchar(100) not null, 
 estado int(1) not null
 );
+select * from tb_cliente;
+
 -- crear tabla categoria 
 create table tb_categoria(
 idCategoria int(11) auto_increment primary key,

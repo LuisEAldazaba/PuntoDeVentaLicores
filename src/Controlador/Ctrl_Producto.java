@@ -41,7 +41,7 @@ public class Ctrl_Producto {
         return respuesta;
     }
 
-    //metodo para consultar si el rpoducto ya esta en la BBDD
+    //metodo para consultar si el producto ya esta en la BBDD
     public boolean existeProducto(String producto) {
         boolean respuesta = false;
         String sql = "select nombre from tb_producto where nombre = '" + producto + "';";

@@ -1,4 +1,3 @@
-
 package Vista;
 
 import java.awt.Dimension;
@@ -9,8 +8,8 @@ import javax.swing.JDesktopPane;
  * @author aldaz
  */
 public class FrmMenu extends javax.swing.JFrame {
+
     public static JDesktopPane jDesktopPane_menu;
-    
 
     public FrmMenu() {
         initComponents();
@@ -18,14 +17,14 @@ public class FrmMenu extends javax.swing.JFrame {
         this.setExtendedState(this.MAXIMIZED_BOTH);
         this.setLocationRelativeTo(null);
         this.setTitle("Sistema de Ventas");
-        
+
         this.setLayout(null);
         jDesktopPane_menu = new JDesktopPane();
-        
-        int ancho= java.awt.Toolkit.getDefaultToolkit().getScreenSize().width;
-        int alto= java.awt.Toolkit.getDefaultToolkit().getScreenSize().height;
+
+        int ancho = java.awt.Toolkit.getDefaultToolkit().getScreenSize().width;
+        int alto = java.awt.Toolkit.getDefaultToolkit().getScreenSize().height;
         //aqui le damos el tamaño que estara el fondo 
-        this.jDesktopPane_menu.setBounds(0, 0, ancho, (alto -110));//el -110 es para ajustar lo de la barra
+        this.jDesktopPane_menu.setBounds(0, 0, ancho, (alto - 110));//el -110 es para ajustar lo de la barra
         this.add(jDesktopPane_menu);
     }
 
@@ -137,6 +136,11 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenuItem_nuevo_cliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/nuevo-cliente.png"))); // NOI18N
         jMenuItem_nuevo_cliente.setText("Nuevo Cliente");
         jMenuItem_nuevo_cliente.setPreferredSize(new java.awt.Dimension(180, 30));
+        jMenuItem_nuevo_cliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_nuevo_clienteActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem_nuevo_cliente);
 
         jMenuItem_gestionar_cliente.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -271,7 +275,7 @@ public class FrmMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem_gestionar_usuarioActionPerformed
 
     private void jMenuItem_nueva_categoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_nueva_categoriaActionPerformed
-        InterCategoria interCategoria= new InterCategoria();
+        InterCategoria interCategoria = new InterCategoria();
         jDesktopPane_menu.add(interCategoria);
         interCategoria.setVisible(true); //con esto le damos formato cuando presionamos el boton de nueva categoria
     }//GEN-LAST:event_jMenuItem_nueva_categoriaActionPerformed
@@ -285,28 +289,33 @@ public class FrmMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem_reporte_productoActionPerformed
 
     private void jMenuItem_gestionar_categoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_gestionar_categoriaActionPerformed
-     InterGestionarCategoria interGestionarCategoria = new InterGestionarCategoria();
-     jDesktopPane_menu.add(interGestionarCategoria);
-     interGestionarCategoria.setVisible(true);
-     
-        
-        
-        
+        InterGestionarCategoria interGestionarCategoria = new InterGestionarCategoria();
+        jDesktopPane_menu.add(interGestionarCategoria);
+        interGestionarCategoria.setVisible(true);
+
+
     }//GEN-LAST:event_jMenuItem_gestionar_categoriaActionPerformed
 
     private void jMenuItem_nuevo_productoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_nuevo_productoActionPerformed
-         InterProducto interProducto = new InterProducto();
-     jDesktopPane_menu.add(interProducto);
-     interProducto.setVisible(true);
-     
+        InterProducto interProducto = new InterProducto();
+        jDesktopPane_menu.add(interProducto);
+        interProducto.setVisible(true);
+
     }//GEN-LAST:event_jMenuItem_nuevo_productoActionPerformed
 
     private void jMenuItem_gestionar_productoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_gestionar_productoActionPerformed
         InterGestionarProducto interGestionarProducto = new InterGestionarProducto();
-     jDesktopPane_menu.add(interGestionarProducto);
-     interGestionarProducto.setVisible(true);
+        jDesktopPane_menu.add(interGestionarProducto);
+        interGestionarProducto.setVisible(true);
 // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem_gestionar_productoActionPerformed
+
+    private void jMenuItem_nuevo_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_nuevo_clienteActionPerformed
+        InterCliente interCliente = new InterCliente();
+        jDesktopPane_menu.add(interCliente);
+        interCliente.setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem_nuevo_clienteActionPerformed
 
     /**
      * @param args the command line arguments
