@@ -28,6 +28,7 @@ estado int(1) not null
 );
 select * from tb_cliente;
 
+
 -- crear tabla categoria 
 create table tb_categoria(
 idCategoria int(11) auto_increment primary key,
