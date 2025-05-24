@@ -207,6 +207,7 @@ public class InterUsuario extends javax.swing.JInternalFrame {
                 usuario.setApellido(txt_apellido.getText().trim());
                 usuario.setUsuario(txt_usuario.getText().trim());
                 usuario.setPassword(txt_password.getText().trim());
+                usuario.setTelefono(txt_telefono.getText().trim());
                 usuario.setEstado(1);
 
                 if (controlUsuario.guardar(usuario)) {
