@@ -86,4 +86,46 @@ public class Ctrl_Usuario {
         return respuesta;
 
     }
+    
+    //metodo actualizar usuario
+    public boolean actualizar(Usuario objeto, int idUsuario) {
+        boolean respuesta = false;
+        Connection cn = Conexion.conectar();
+        try {
+            PreparedStatement consulta = cn.prepareStatement("update tb_usuario set nombre= ?, apellido= ?, usuario= ?, password= ?,telefono= ?,estado= ? where idUsuario = '" + idUsuario + "'");
+            consulta.setString(1, objeto.getNombre());
+            consulta.setString(2, objeto.getApellido());
+            consulta.setString(3, objeto.getUsuario());
+            consulta.setString(4, objeto.getPassword());
+            consulta.setString(5, objeto.getTelefono());
+            consulta.setInt(6, objeto.getEstado());
+
+            if (consulta.executeUpdate() > 0) {
+                respuesta = true;
+            }
+            cn.close();
+        } catch (SQLException e) {
+            System.out.println("Error al actualizar usuario: " + e);
+        }
+
+        return respuesta;
+    }
+
+    //metodo eliminar usuario
+    public boolean eliminar(int idUsuario) {
+        boolean respuesta = false;
+        Connection cn = conexion.Conexion.conectar();
+        try {
+            PreparedStatement consulta = cn.prepareStatement("delete from tb_usuario where idUsuario = '" + idUsuario + "'");
+            consulta.executeUpdate();
+
+            if (consulta.executeUpdate() > 0) {
+                respuesta = true;
+            }
+            cn.close();
+        } catch (SQLException e) {
+            System.out.println("Error al eliminar usuario: " + e);
+        }
+        return respuesta;
+    }
 }

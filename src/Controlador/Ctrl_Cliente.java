@@ -77,7 +77,7 @@ public class Ctrl_Cliente {
             }
             cn.close();
         } catch (SQLException e) {
-            System.out.println("Error al actualizar producto: " + e);
+            System.out.println("Error al actualizar cliente: " + e);
         }
 
         return respuesta;
