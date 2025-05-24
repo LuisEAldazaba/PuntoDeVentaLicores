@@ -123,6 +123,11 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenuItem_actualizar_producto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/nuevo.png"))); // NOI18N
         jMenuItem_actualizar_producto.setText("Actualizar Stock");
         jMenuItem_actualizar_producto.setPreferredSize(new java.awt.Dimension(200, 30));
+        jMenuItem_actualizar_producto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_actualizar_productoActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem_actualizar_producto);
 
         jMenuBar1.add(jMenu2);
@@ -266,6 +271,11 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenuItem_cerrar_sesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/cerrar-sesion.png"))); // NOI18N
         jMenuItem_cerrar_sesion.setText("Cerrar Sesion");
         jMenuItem_cerrar_sesion.setPreferredSize(new java.awt.Dimension(150, 30));
+        jMenuItem_cerrar_sesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_cerrar_sesionActionPerformed(evt);
+            }
+        });
         jMenu8.add(jMenuItem_cerrar_sesion);
 
         jMenuBar1.add(jMenu8);
@@ -327,6 +337,16 @@ public class FrmMenu extends javax.swing.JFrame {
         jDesktopPane_menu.add(interGestionarCliente);
         interGestionarCliente.setVisible(true);
     }//GEN-LAST:event_jMenuItem_gestionar_clienteActionPerformed
+
+    private void jMenuItem_actualizar_productoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_actualizar_productoActionPerformed
+        InterActualizarStock interActualizarStock = new InterActualizarStock();
+        jDesktopPane_menu.add(interActualizarStock);
+        interActualizarStock.setVisible(true);
+    }//GEN-LAST:event_jMenuItem_actualizar_productoActionPerformed
+
+    private void jMenuItem_cerrar_sesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_cerrar_sesionActionPerformed
+       System.exit(0);
+    }//GEN-LAST:event_jMenuItem_cerrar_sesionActionPerformed
 
     /**
      * @param args the command line arguments

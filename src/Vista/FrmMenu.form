@@ -115,6 +115,9 @@
                   <Dimension value="[200, 30]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem_actualizar_productoActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -394,6 +397,9 @@
                   <Dimension value="[150, 30]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem_cerrar_sesionActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
