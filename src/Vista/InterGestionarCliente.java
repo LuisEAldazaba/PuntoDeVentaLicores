@@ -1,5 +1,7 @@
 package Vista;
 
+import Controlador.Ctrl_Cliente;
+import Modelo.Cliente;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 import conexion.Conexion;
@@ -172,11 +174,45 @@ public class InterGestionarCliente extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_eliminarActionPerformed
-
+        Ctrl_Cliente controlCliente = new Ctrl_Cliente();
+        if(idCliente == 0){
+            JOptionPane.showMessageDialog(null, "Seleccione un cliente");
+        }else{
+            if(!controlCliente.eliminar(idCliente)){
+              JOptionPane.showMessageDialog(null, "Cliente eliminado"); 
+              this.CargarTablaClientes();
+              this.Limpiar();
+            }else{
+                JOptionPane.showMessageDialog(null, "Error al eliminar cliente"); 
+                this.Limpiar();
+            }
+        }
+            
     }//GEN-LAST:event_jButton_eliminarActionPerformed
 
     private void jButton_actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_actualizarActionPerformed
+        if(txt_nombre.getText().isEmpty() && txt_apellido.getText().isEmpty() && txt_ine.getText().isEmpty() && txt_telefono.getText().isEmpty() && txt_direccion.getText().isEmpty()){
 
+            JOptionPane.showMessageDialog(null, "Completa todos los campos");
+        }else{
+            Cliente cliente = new Cliente();
+            Ctrl_Cliente controlCliente = new Ctrl_Cliente();
+            
+            cliente.setNombre(txt_nombre.getText().trim());
+            cliente.setApellido(txt_apellido.getText().trim());
+            cliente.setIne(txt_ine.getText().trim());
+            cliente.setTelefono(txt_telefono.getText().trim());
+            cliente.setDireccion(txt_direccion.getText().trim());
+            
+            if(controlCliente.actualizar(cliente, idCliente)){
+                JOptionPane.showMessageDialog(null, "Datos del cliente actualizados");
+                this.CargarTablaClientes();
+                this.Limpiar();
+            }else{
+                JOptionPane.showMessageDialog(null, "Error al actualizar");
+            }
+                    
+        }
     }//GEN-LAST:event_jButton_actualizarActionPerformed
 
     private void txt_telefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_telefonoActionPerformed

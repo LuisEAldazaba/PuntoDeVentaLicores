@@ -1,6 +1,7 @@
 package Controlador;
 
 import Modelo.Cliente;
+import Modelo.Producto;
 import conexion.Conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -57,4 +58,47 @@ public class Ctrl_Cliente {
 
         return respuesta;
     }
+    
+    //metodo actualizar cliente
+    public boolean actualizar(Cliente objeto, int idCliente) {
+        boolean respuesta = false;
+        Connection cn = Conexion.conectar();
+        try {
+            PreparedStatement consulta = cn.prepareStatement("update tb_cliente set nombre= ?, apellido= ?, ine= ?, telefono= ?,direccion= ?,estado= ? where idCliente = '" + idCliente + "'");
+            consulta.setString(1, objeto.getNombre());
+            consulta.setString(2, objeto.getApellido());
+            consulta.setString(3, objeto.getIne());
+            consulta.setString(4, objeto.getTelefono());
+            consulta.setString(5, objeto.getDireccion());
+            consulta.setInt(6, objeto.getEstado());
+
+            if (consulta.executeUpdate() > 0) {
+                respuesta = true;
+            }
+            cn.close();
+        } catch (SQLException e) {
+            System.out.println("Error al actualizar producto: " + e);
+        }
+
+        return respuesta;
+    }
+
+    //metodo eliminar cliente
+    public boolean eliminar(int idCliente) {
+        boolean respuesta = false;
+        Connection cn = conexion.Conexion.conectar();
+        try {
+            PreparedStatement consulta = cn.prepareStatement("delete from tb_cliente where idCliente = '" + idCliente + "'");
+            consulta.executeUpdate();
+
+            if (consulta.executeUpdate() > 0) {
+                respuesta = true;
+            }
+            cn.close();
+        } catch (SQLException e) {
+            System.out.println("Error al eliminar cliente: " + e);
+        }
+        return respuesta;
+    }
+
 }
