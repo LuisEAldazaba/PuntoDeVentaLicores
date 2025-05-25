@@ -80,3 +80,7 @@ select * from tb_usuario;
 select cv.idCabeceraVenta as id, concat(c.nombre, ' ',c.apellido)as cliente, cv.valorPagar as total, cv.fechaVenta as fecha, cv.estado from tb_cabecera_venta as cv, tb_cliente as c where cv.idCliente = c.idCliente;
 
 select cv.idCabeceraVenta,cv.idCliente, concat(c.nombre, ' ',c.apellido)as cliente, cv.valorPagar, cv.fechaVenta, cv.estado from tb_cabecera_venta as cv, tb_cliente as c where cv.idCabeceraVenta=1 and cv.idCliente = c.idCliente;
+
+select p.idProducto, p.nombre, p.cantidad, p.precio, p.descripcion, p.porcentajeIva, c.descripcion as categoria, p.estado from tb_producto as p, tb_categoria as c where p.idCategoria = c.idCategoria;
+
+select cv.idCabeceraVenta as id, concat(c.nombre, ' ', c.apellido) as cliente, cv.valorPagar as total, cv.fechaVenta as fecha, cv.estado from tb_cabecera_venta as cv, tb_cliente as c where cv.idCliente = c.idCliente;

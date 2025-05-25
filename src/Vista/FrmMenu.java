@@ -1,5 +1,6 @@
 package Vista;
 
+import Controlador.Reportes;
 import java.awt.Dimension;
 import javax.swing.JDesktopPane;
 
@@ -243,6 +244,11 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenuItem_reporte_categoria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/reporte1.png"))); // NOI18N
         jMenuItem_reporte_categoria.setText("Reportes Categorias");
         jMenuItem_reporte_categoria.setPreferredSize(new java.awt.Dimension(200, 30));
+        jMenuItem_reporte_categoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_reporte_categoriaActionPerformed(evt);
+            }
+        });
         jMenu6.add(jMenuItem_reporte_categoria);
 
         jMenuItem_reporte_producto.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -260,6 +266,11 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenuItem_reporte_venta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/reporte1.png"))); // NOI18N
         jMenuItem_reporte_venta.setText("Reportes Ventas");
         jMenuItem_reporte_venta.setPreferredSize(new java.awt.Dimension(200, 30));
+        jMenuItem_reporte_venta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_reporte_ventaActionPerformed(evt);
+            }
+        });
         jMenu6.add(jMenuItem_reporte_venta);
 
         jMenuBar1.add(jMenu6);
@@ -315,11 +326,16 @@ public class FrmMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem_nueva_categoriaActionPerformed
 
     private void jMenuItem_reporte_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_reporte_clienteActionPerformed
-        // TODO add your handling code here:
+        //boton reporte cliente
+        Reportes reporte = new Reportes();
+        reporte.ReportesClientes();
+
     }//GEN-LAST:event_jMenuItem_reporte_clienteActionPerformed
 
     private void jMenuItem_reporte_productoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_reporte_productoActionPerformed
-        // TODO add your handling code here:
+        //boton reporte productos
+        Reportes reporte = new Reportes();
+        reporte.ReportesProductos();
     }//GEN-LAST:event_jMenuItem_reporte_productoActionPerformed
 
     private void jMenuItem_gestionar_categoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_gestionar_categoriaActionPerformed
@@ -388,6 +404,18 @@ public class FrmMenu extends javax.swing.JFrame {
         interGestionarVentas.setVisible(true);
         //añadir al boton la interfas de gestionar venta
     }//GEN-LAST:event_jMenuItem_gestionar_ventaActionPerformed
+
+    private void jMenuItem_reporte_categoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_reporte_categoriaActionPerformed
+        //boton reporte categorias
+        Reportes reporte = new Reportes();
+        reporte.ReportesCategorias();
+    }//GEN-LAST:event_jMenuItem_reporte_categoriaActionPerformed
+
+    private void jMenuItem_reporte_ventaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_reporte_ventaActionPerformed
+       //boton reporte de ventas
+        Reportes reporte = new Reportes();
+        reporte.ReportesVentas();
+    }//GEN-LAST:event_jMenuItem_reporte_ventaActionPerformed
 
     /**
      * @param args the command line arguments
