@@ -284,6 +284,11 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenuItem_ver_historial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/historial1.png"))); // NOI18N
         jMenuItem_ver_historial.setText("Ver Historial");
         jMenuItem_ver_historial.setPreferredSize(new java.awt.Dimension(150, 30));
+        jMenuItem_ver_historial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_ver_historialActionPerformed(evt);
+            }
+        });
         jMenu7.add(jMenuItem_ver_historial);
 
         jMenuBar1.add(jMenu7);
@@ -416,6 +421,13 @@ public class FrmMenu extends javax.swing.JFrame {
         Reportes reporte = new Reportes();
         reporte.ReportesVentas();
     }//GEN-LAST:event_jMenuItem_reporte_ventaActionPerformed
+
+    private void jMenuItem_ver_historialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_ver_historialActionPerformed
+        //boton historial
+        InterGraficas interGraficas = new InterGraficas();
+        jDesktopPane_menu.add(interGraficas);
+        interGraficas.setVisible(true);
+    }//GEN-LAST:event_jMenuItem_ver_historialActionPerformed
 
     /**
      * @param args the command line arguments
