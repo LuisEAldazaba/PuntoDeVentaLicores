@@ -57,6 +57,9 @@ valorPagar double(10,2) not null,
 fechaVenta date not null,
 estado int(1) not null
 );
+
+select * from tb_cabecera_venta;
+select * from tb_detalle_venta;
 -- crear tabla detalle de venta
 create table tb_detalle_venta(
 idDetalleVenta int(11) auto_increment primary key, 
