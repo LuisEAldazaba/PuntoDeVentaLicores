@@ -82,4 +82,23 @@ public class Ctrl_RegistrarVenta {
 
         return respuesta;
     }
+        //metodo actualizar cliente
+    public boolean actualizar(CabeceraVenta objeto, int idCabeceraVenta) {
+        boolean respuesta = false;
+        Connection cn = Conexion.conectar();
+        try {
+            PreparedStatement consulta = cn.prepareStatement("update tb_cabecera_venta set idCliente= ?,estado= ? where idCabeceraVenta = '" + idCabeceraVenta + "'");
+            consulta.setInt(1, objeto.getIdCliente());
+            consulta.setInt(2, objeto.getEstado());
+
+            if (consulta.executeUpdate() > 0) {
+                respuesta = true;
+            }
+            cn.close();
+        } catch (SQLException e) {
+            System.out.println("Error al actualizar Cabecera de ventas: " + e);
+        }
+
+        return respuesta;
+    }
 }

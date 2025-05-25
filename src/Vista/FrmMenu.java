@@ -214,6 +214,11 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenuItem_gestionar_venta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/configuraciones.png"))); // NOI18N
         jMenuItem_gestionar_venta.setText("Gestionar Ventas");
         jMenuItem_gestionar_venta.setPreferredSize(new java.awt.Dimension(200, 30));
+        jMenuItem_gestionar_venta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_gestionar_ventaActionPerformed(evt);
+            }
+        });
         jMenu5.add(jMenuItem_gestionar_venta);
 
         jMenuBar1.add(jMenu5);
@@ -375,6 +380,14 @@ public class FrmMenu extends javax.swing.JFrame {
         interFacturacion.setVisible(true);
         //Accion de boton de nueva venta
     }//GEN-LAST:event_jMenuItem_nueva_ventaActionPerformed
+
+    private void jMenuItem_gestionar_ventaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_gestionar_ventaActionPerformed
+
+        InterGestionarVentas interGestionarVentas = new InterGestionarVentas();
+        jDesktopPane_menu.add(interGestionarVentas);
+        interGestionarVentas.setVisible(true);
+        //añadir al boton la interfas de gestionar venta
+    }//GEN-LAST:event_jMenuItem_gestionar_ventaActionPerformed
 
     /**
      * @param args the command line arguments

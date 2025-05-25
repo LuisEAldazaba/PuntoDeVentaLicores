@@ -77,3 +77,6 @@ estado int(1) not null
 show tables;
 
 select * from tb_usuario;
+select cv.idCabeceraVenta as id, concat(c.nombre, ' ',c.apellido)as cliente, cv.valorPagar as total, cv.fechaVenta as fecha, cv.estado from tb_cabecera_venta as cv, tb_cliente as c where cv.idCliente = c.idCliente;
+
+select cv.idCabeceraVenta,cv.idCliente, concat(c.nombre, ' ',c.apellido)as cliente, cv.valorPagar, cv.fechaVenta, cv.estado from tb_cabecera_venta as cv, tb_cliente as c where cv.idCabeceraVenta=1 and cv.idCliente = c.idCliente;
