@@ -68,7 +68,7 @@ public class Ctrl_Producto {
         boolean respuesta = false;
         Connection cn = Conexion.conectar();
         try {
-            PreparedStatement consulta = cn.prepareStatement("update tb_producto set nombre= ?, cantidad= ?, precio= ?, descripcion= ?,porcentaje= ?,idCategoria= ?,estado= ? where idProducto = '" + idProducto + "'");
+            PreparedStatement consulta = cn.prepareStatement("update tb_producto set nombre= ?, cantidad= ?, precio= ?, descripcion= ?,porcentajeIva= ?,idCategoria= ?,estado= ? where idProducto = '" + idProducto + "'");
             consulta.setString(1, objeto.getNombre());
             consulta.setInt(2, objeto.getCantidad());
             consulta.setDouble(3, objeto.getPrecio());
