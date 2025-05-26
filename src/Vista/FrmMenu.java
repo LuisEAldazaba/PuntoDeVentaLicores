@@ -44,7 +44,9 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenuItem_gestionar_usuario = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem_nuevo_producto = new javax.swing.JMenuItem();
+        jMenuItem_nuevo_proveedor = new javax.swing.JMenuItem();
         jMenuItem_gestionar_producto = new javax.swing.JMenuItem();
+        jMenuItem_gestionar_proveedor = new javax.swing.JMenuItem();
         jMenuItem_actualizar_producto = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem_nuevo_cliente = new javax.swing.JMenuItem();
@@ -114,6 +116,15 @@ public class FrmMenu extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem_nuevo_producto);
 
+        jMenuItem_nuevo_proveedor.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jMenuItem_nuevo_proveedor.setText("Nuevo Proveedor");
+        jMenuItem_nuevo_proveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_nuevo_proveedorActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem_nuevo_proveedor);
+
         jMenuItem_gestionar_producto.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jMenuItem_gestionar_producto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/producto.png"))); // NOI18N
         jMenuItem_gestionar_producto.setText("Gestionar Producto");
@@ -124,6 +135,17 @@ public class FrmMenu extends javax.swing.JFrame {
             }
         });
         jMenu2.add(jMenuItem_gestionar_producto);
+
+        jMenuItem_gestionar_proveedor.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jMenuItem_gestionar_proveedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/producto.png"))); // NOI18N
+        jMenuItem_gestionar_proveedor.setText("Gestionar Proveedores");
+        jMenuItem_gestionar_proveedor.setPreferredSize(new java.awt.Dimension(200, 30));
+        jMenuItem_gestionar_proveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_gestionar_proveedorActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem_gestionar_proveedor);
 
         jMenuItem_actualizar_producto.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jMenuItem_actualizar_producto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/nuevo.png"))); // NOI18N
@@ -429,6 +451,21 @@ public class FrmMenu extends javax.swing.JFrame {
         interGraficas.setVisible(true);
     }//GEN-LAST:event_jMenuItem_ver_historialActionPerformed
 
+    private void jMenuItem_gestionar_proveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_gestionar_proveedorActionPerformed
+        // boton abrir gestionar proveedores
+        InterGestionarProveedores interGestionarProveedores = new InterGestionarProveedores();
+        jDesktopPane_menu.add(interGestionarProveedores);
+        interGestionarProveedores.setVisible(true);
+    }//GEN-LAST:event_jMenuItem_gestionar_proveedorActionPerformed
+
+    private void jMenuItem_nuevo_proveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_nuevo_proveedorActionPerformed
+        //boton para abrir el interProveedores
+        InterProveedores interProveedores = new InterProveedores();
+        jDesktopPane_menu.add(interProveedores);
+        interProveedores.setVisible(true);
+        
+    }//GEN-LAST:event_jMenuItem_nuevo_proveedorActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -479,12 +516,14 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem_gestionar_categoria;
     private javax.swing.JMenuItem jMenuItem_gestionar_cliente;
     private javax.swing.JMenuItem jMenuItem_gestionar_producto;
+    private javax.swing.JMenuItem jMenuItem_gestionar_proveedor;
     private javax.swing.JMenuItem jMenuItem_gestionar_usuario;
     private javax.swing.JMenuItem jMenuItem_gestionar_venta;
     private javax.swing.JMenuItem jMenuItem_nueva_categoria;
     private javax.swing.JMenuItem jMenuItem_nueva_venta;
     private javax.swing.JMenuItem jMenuItem_nuevo_cliente;
     private javax.swing.JMenuItem jMenuItem_nuevo_producto;
+    private javax.swing.JMenuItem jMenuItem_nuevo_proveedor;
     private javax.swing.JMenuItem jMenuItem_nuevo_usuario;
     private javax.swing.JMenuItem jMenuItem_reporte_categoria;
     private javax.swing.JMenuItem jMenuItem_reporte_cliente;

@@ -74,6 +74,22 @@ totalPagar double(10,2) not null,
 estado int(1) not null
 );
 
+
+-- crear tabla proveedores
+create table tb_proveedores(
+idProveedor int(11) auto_increment primary key,
+empresa varchar (100) not null,
+telefono varchar(15) not null,
+direccionFiscal varchar (100) not null,
+estado int(1) not null
+);
+
+
+
+select * from tb_proveedores;
+
+
+
 show tables;
 
 select * from tb_usuario;
