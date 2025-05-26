@@ -122,7 +122,7 @@ public class Reportes {
             tabla.addCell("Nombre");
             tabla.addCell("Cant.");
             tabla.addCell("Precio");
-            tabla .addCell("Direccion");
+            tabla .addCell("Descripcion");
             tabla .addCell("por. Iva");
             tabla .addCell("Categoria");
             
@@ -310,6 +310,72 @@ public class Reportes {
         }
 
     }
+    
+    public void ReportesProveedores() {
+        Document documento = new Document();
+        try {
+            String ruta = System.getProperty("user.home");
+            PdfWriter.getInstance(documento, new FileOutputStream(ruta + "/Desktop/Reportes_Proveedores.pdf"));
+            Image header = Image.getInstance("src/IMG/header1.jpg");
+            header.scaleToFit(650, 1000);
+            header.setAlignment(Chunk.ALIGN_CENTER);
+            //FORMATO AL TEXTO
+            Paragraph parrafo = new Paragraph();
+            parrafo.setAlignment(Paragraph.ALIGN_CENTER);
+            parrafo.add("Reporte creado por \n Licoreria Tecnologico ©️\n\n");
+            parrafo.setFont(FontFactory.getFont("Tahoma", 18, Font.BOLD, BaseColor.DARK_GRAY));
+            parrafo.add("Reporte de Proveedores \n\n");
+
+            documento.open();
+            //agregamos los datos
+            documento.add(header);
+            documento.add(parrafo);
+
+            PdfPTable tabla = new PdfPTable(4);
+            tabla.addCell("idProveedor");
+            tabla.addCell("Empresa");
+            tabla.addCell("Telefono");
+            tabla .addCell("Direccion");
+            
+            try {
+                Connection cn = conexion.Conexion.conectar();
+                PreparedStatement pst = cn.prepareStatement("select idProveedor, empresa, telefono, direccionFiscal FROM tb_proveedores");
+                ResultSet rs = pst.executeQuery();
+                if(rs.next()){
+                    do{
+                        tabla.addCell(rs.getString(1));
+                        tabla.addCell(rs.getString(2));
+                        tabla.addCell(rs.getString(3));
+                        tabla.addCell(rs.getString(4));
+                       
+                    }while(rs.next());
+                    documento.add(tabla);
+                
+                    
+                }
+                
+                
+                
+            } catch (SQLException e) {
+                System.out.println("Error 4 en: " +e);
+            }
+            
+            documento.close();
+            
+            JOptionPane.showMessageDialog(null, "Reporte creado");
+            
+            
+
+        } catch (DocumentException e) {
+            System.out.println("Error 1 en: " + e);
+        } catch (FileNotFoundException ex) {
+            System.out.println("Error  2 en: " +ex);
+        } catch (IOException ex) {
+            System.out.println("Error 3 en: "+ ex);
+        }
+
+    }
+
     
     
 }
