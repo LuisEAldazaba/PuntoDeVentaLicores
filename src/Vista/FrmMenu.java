@@ -2,6 +2,8 @@ package Vista;
 
 import Controlador.Reportes;
 import java.awt.Dimension;
+import java.awt.Image;
+import java.awt.Toolkit;
 import javax.swing.JDesktopPane;
 
 /**
@@ -27,6 +29,13 @@ public class FrmMenu extends javax.swing.JFrame {
         //aqui le damos el tamaño que estara el fondo 
         this.jDesktopPane_menu.setBounds(0, 0, ancho, (alto - 110));//el -110 es para ajustar lo de la barra
         this.add(jDesktopPane_menu);
+    }
+
+    
+    @Override
+    public Image getIconImage(){
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("IMG/ventas.png"));
+        return retValue;
     }
 
     /**
@@ -69,6 +78,7 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenuItem_cerrar_sesion = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(getIconImage());
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/usuario.png"))); // NOI18N
